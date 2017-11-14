@@ -1,0 +1,17 @@
+<h3>Comments:</h3>
+<% @article.comments.each do |comment| %>
+    
+  <h4><em><%= comment.commenter %></em></h4>
+    
+
+    <p><%= comment.body %></p>
+    
+
+  <% permitted_to? :edit, comment do%>
+    <%= link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%end%>
+
+
+     
+
+<% end %>

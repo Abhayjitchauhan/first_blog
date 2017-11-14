@@ -1,0 +1,33 @@
+
+  <p id="notice"><%= notice %></p>
+<h1>Articles</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Body</th>
+      <th>Author</th>
+      
+    </tr> 
+  </thead>
+
+  <tbody >
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.name %></td>
+        <td><%= link_to article.body[0,300]+'...', article %></td>
+        <td><%= article.user.name %></td>
+        <% permitted_to? :edit, article do%>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Delete', article, method: :delete, data: {confirm: 'Are you sure?'}%></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Article', new_article_path %>
