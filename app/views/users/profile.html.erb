@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h1>Profile</h1>
+
+<ul style="list-style-type: none;" >
+
+  <li><%= image_tag @user.avatar_url %></li>
+  <li><strong> Name:  </strong><%= @user.name%></li>
+  <li><strong> E-mail: </strong><%= @user.email%></li>
+  <li><strong> Created at: </strong> <%= @user.created_at%> </li>
+</ul>
+
+<%= link_to 'Edit profile',edit_user_registration_path%>
+<br>
+<%= link_to 'My articles',user_articles_path%>
+
+

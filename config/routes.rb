@@ -4,6 +4,10 @@ Rails.application.routes.draw do
       resources :comments, only: [:new, :create, :show, :destroy]
     end
     devise_for :users, controllers: { registrations: "user/registrations" }
+    
+
+    get '/user_articles', to: 'users#articles', as: 'user_articles'
+    get '/user_profile', to: 'users#profile', as: 'user_profile'
     root 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
